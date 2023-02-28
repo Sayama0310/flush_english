@@ -10,6 +10,14 @@ def max_len(strings: List[str]) -> int:
     return length
 
 
+def refresh_pages(pages, pages_start, current_index, y, screen):
+    for page, page_start in zip(pages, pages_start):
+        if pages[current_index] == page:
+            screen.addstr(y, page_start, page, curses.A_REVERSE)
+        else:
+            screen.addstr(y, page_start, page)
+
+
 def home_screen():
     # スクリーンの初期化
     screen = curses.initscr()
@@ -33,9 +41,42 @@ def home_screen():
     for i in range(len(splitted_title)):
         screen.addstr(y + i, x, splitted_title[i])
 
-    # 変更を反映する
-    screen.refresh()
-    screen.getch()
+    ### ページ遷移選択肢を表示 ###
+    current_index = 0
+    EXAM = 'Exam'
+    EDIT = 'Edit'
+    REPORT = 'Report'
+    PADDING = 10
+    edit_start = screen.getmaxyx()[1] // 2 - len(EDIT)
+    exam_start = edit_start - PADDING - len(EXAM)
+    report_start = edit_start + len(EDIT) + PADDING
+    pages = [EXAM, EDIT, REPORT]
+    pages_start = [exam_start, edit_start, report_start]
+    y = 3 * screen.getmaxyx()[0] // 4
+
+    while True:
+        refresh_pages(pages, pages_start, current_index, y, screen)
+
+        # キー入力を待つ
+        key = screen.getch()
+
+        # 矢印キーで選択肢を移動する
+        if key == curses.KEY_LEFT and current_index > 0:
+            current_index -= 1
+        elif key == curses.KEY_RIGHT and current_index < len(pages) - 1:
+            current_index += 1
+
+        # Enterキーで選択する
+        elif key == curses.KEY_ENTER or key in [10, 13]:
+            chosen = pages[current_index]
+            screen.addstr(
+                screen.getmaxyx()[0] - 1,
+                0,
+                f"You chose {chosen}. Press any key to exit.",
+            )
+            screen.refresh()
+            screen.getch()
+            break
 
     # スクリーンの終了処理
     curses.endwin()
