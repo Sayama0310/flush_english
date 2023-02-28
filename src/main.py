@@ -7,11 +7,11 @@ screen = curses.initscr()
 curses.curs_set(0)
 
 # 文字列を表示する座標を計算する
-x = screen.getmaxyx()[1] // 2 - len("Hello, World!") // 2
+x = screen.getmaxyx()[1] // 2 - len("Flush") // 2
 y = screen.getmaxyx()[0] // 2
 
 # 文字列を表示する
-screen.addstr(y, x, "Hello, World!")
+screen.addstr(y, x, "Flush")
 
 # 変更を反映する
 screen.refresh()
