@@ -1,7 +1,6 @@
 import curses
 from typing import List
 from pages.edit import edit_screen
-
 from pages.exam import exam_screen
 from pages.report import report_screen
 

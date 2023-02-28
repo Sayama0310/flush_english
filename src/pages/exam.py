@@ -1,5 +1,7 @@
 import curses
 
+# from pages.home import home_screen
+
 
 def exam_screen():
     # スクリーンの初期化
@@ -19,7 +21,23 @@ def exam_screen():
     screen.addstr(y, x, exam)
 
     screen.refresh()
-    screen.getch()
+
+    ### : でページ遷移 ###
+    key = screen.getch()
+    input = ":"
+    if key == ord(':'):
+        screen.addstr(screen.getmaxyx()[0], 0, input)
+        screen.refresh()
+        while True:
+            key = screen.getch()
+            if key == curses.KEY_ENTER or key in [10, 13]:
+                if input.strip(':').lower == "home":
+                    # home_screen()
+                    pass
+                break
+            input += chr(key)
+            screen.addstr(screen.getmaxyx()[0], 0, input)
+            screen.refresh()
 
     # スクリーンの終了処理
     curses.endwin()
