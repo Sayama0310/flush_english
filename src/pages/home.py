@@ -1,7 +1,9 @@
 import curses
 from typing import List
+from pages.edit import edit_screen
 
 from pages.exam import exam_screen
+from pages.report import report_screen
 
 
 def max_len(strings: List[str]) -> int:
@@ -77,6 +79,10 @@ def home_screen():
             chosen = pages[current_index]
             if chosen == EXAM:
                 exam_screen()
+            elif chosen == EDIT:
+                edit_screen()
+            elif chosen == REPORT:
+                report_screen()
             break
 
     # スクリーンの終了処理
