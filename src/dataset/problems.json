@@ -1,0 +1,104 @@
+{
+    "problems": [
+        {
+            "japanese": "Pythonのインタプリタがあると便利ですが、すべての例は自己完結しているので、オフラインでも読むことができます。",
+            "english": "It helps to have a Python interpreter handy for hands-on experience, but all examples are self-contained, so the tutorial can be read off-line as well."
+        },
+        {
+            "japanese": "一度、本当にハマってしまうと",
+            "english": "Once you are really hooked,"
+        },
+        {
+            "japanese": "Pythonは簡潔さと明確さを重視して設計されています。",
+            "english": "Python was designed for readability, and has some similarities to the English language with influence from mathematics."
+        },
+        {
+            "japanese": "プログラムを書く際には、Pythonの標準的なコーディング規約に従うことをお勧めします。",
+            "english": "It is recommended to follow Python's standard coding conventions when writing code."
+        },
+        {
+            "japanese": "Pythonは人気のあるプログラミング言語の1つであり、多くの企業や団体が採用しています。",
+            "english": "Python is one of the most popular programming languages and is used by many companies and organizations."
+        },
+        {
+            "japanese": "Pythonは、様々な分野で使われています。例えば、Webアプリケーション、データ分析、人工知能、科学計算などです。",
+            "english": "Python is used in a variety of fields, such as web applications, data analysis, artificial intelligence, scientific computing, and more."
+        },
+        {
+            "japanese": "Pythonの標準ライブラリには、多くの便利なモジュールが含まれています。",
+            "english": "Python's standard library contains many useful modules."
+        },
+        {
+            "japanese": "Pythonは、動的型付け言語であり、コードを短く書くことができます。",
+            "english": "Python is a dynamically typed language, and allows for shorter code."
+        },
+        {
+            "japanese": "Pythonは、インタプリタ型言語であり、コンパイルが不要です。",
+            "english": "Python is an interpreted language, and does not require compilation."
+        },
+        {
+            "japanese": "Pythonには、豊富なライブラリとフレームワークがあり、開発を効率化することができます。",
+            "english": "Python has a rich set of libraries and frameworks that can help to streamline development."
+        },
+        {
+            "japanese": "明日の朝には着きますか？",
+            "english": "Will it arrive by tomorrow morning?"
+        },
+        {
+            "japanese": "時間に遅れてごめんなさい。",
+            "english": "I'm sorry for being late."
+        },
+        {
+            "japanese": "どうすれば英語を上達できますか？",
+            "english": "How can I improve my English?"
+        },
+        {
+            "japanese": "この書類にサインしてください。",
+            "english": "Please sign this document."
+        },
+        {
+            "japanese": "彼女に会いたい。",
+            "english": "I want to see her."
+        },
+        {
+            "japanese": "このコーヒーはとてもおいしい。",
+            "english": "This coffee is very delicious."
+        },
+        {
+            "japanese": "その本を読み終わった。",
+            "english": "I finished reading that book."
+        },
+        {
+            "japanese": "今日の天気はどうですか？",
+            "english": "What's the weather like today?"
+        },
+        {
+            "japanese": "この部屋は広いですね。",
+            "english": "This room is spacious, isn't it?"
+        },
+        {
+            "japanese": "彼女はいつも遅刻する。",
+            "english": "She is always late."
+        },
+        {
+            "japanese": "あなたはどうやってここに来たのですか？",
+            "english": "How did you get here?"
+        },
+        {
+            "japanese": "明日は忙しいですか？",
+            "english": "Are you busy tomorrow?"
+        },
+        {
+            "japanese": "彼女の名前を教えてください。",
+            "english": "Can you tell me her name?"
+        },
+        {
+            "japanese": "この曲を聴くと、懐かしい気持ちになります。",
+            "english": "When I listen to this song, it makes me feel nostalgic."
+        },
+        {
+            "japanese": "このホテルは便利な場所にあります。",
+            "english": "This hotel is in a convenient location."
+        }
+    ]
+}
