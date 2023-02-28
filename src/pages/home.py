@@ -1,6 +1,8 @@
 import curses
 from typing import List
 
+from pages.exam import exam_screen
+
 
 def max_len(strings: List[str]) -> int:
     length = 0
@@ -16,6 +18,7 @@ def refresh_pages(pages, pages_start, current_index, y, screen):
             screen.addstr(y, page_start, page, curses.A_REVERSE)
         else:
             screen.addstr(y, page_start, page)
+    screen.refresh()
 
 
 def home_screen():
@@ -25,6 +28,9 @@ def home_screen():
     curses.curs_set(0)
     # キー入力を有効にする
     screen.keypad(True)
+    # 画面をクリアする
+    screen.clear()
+    screen.refresh()
 
     ### タイトルの表示 ###
     # 文字列を表示する座標を計算する
@@ -69,13 +75,8 @@ def home_screen():
         # Enterキーで選択する
         elif key == curses.KEY_ENTER or key in [10, 13]:
             chosen = pages[current_index]
-            screen.addstr(
-                screen.getmaxyx()[0] - 1,
-                0,
-                f"You chose {chosen}. Press any key to exit.",
-            )
-            screen.refresh()
-            screen.getch()
+            if chosen == EXAM:
+                exam_screen()
             break
 
     # スクリーンの終了処理
