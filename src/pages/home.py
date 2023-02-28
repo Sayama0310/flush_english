@@ -80,7 +80,3 @@ def home_screen():
 
     # スクリーンの終了処理
     curses.endwin()
-
-
-if __name__ == '__main__':
-    home_screen()
