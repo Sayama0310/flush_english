@@ -5,15 +5,15 @@ from util import max_len
 class FlushApp:
 
     def __init__(self) -> None:
-        pass
-
-    def home_screen(self):
         # スクリーンの初期化
-        screen = curses.initscr()
+        self.screen = curses.initscr()
         # カーソルを非表示にする
         curses.curs_set(0)
         # キー入力を有効にする
-        screen.keypad(True)
+        self.screen.keypad(True)
+
+    def home_screen(self):
+        screen = self.screen
         # 画面をクリアする
         screen.clear()
         screen.refresh()
@@ -47,7 +47,7 @@ _______ __               __
         y = 3 * screen.getmaxyx()[0] // 4
 
         while True:
-            self._refresh_pages(pages, pages_start, current_index, y, screen)
+            self._refresh_pages(pages, pages_start, current_index, y)
 
             # キー入力を待つ
             key = screen.getch()
@@ -69,24 +69,16 @@ _______ __               __
                     self.report_screen()
                 break
 
-        # スクリーンの終了処理
-        curses.endwin()
-
-    def _refresh_pages(self, pages, pages_start, current_index, y, screen):
+    def _refresh_pages(self, pages, pages_start, current_index, y):
         for page, page_start in zip(pages, pages_start):
             if pages[current_index] == page:
-                screen.addstr(y, page_start, page, curses.A_REVERSE)
+                self.screen.addstr(y, page_start, page, curses.A_REVERSE)
             else:
-                screen.addstr(y, page_start, page)
-        screen.refresh()
+                self.screen.addstr(y, page_start, page)
+        self.screen.refresh()
 
     def exam_screen(self):
-        # スクリーンの初期化
-        screen = curses.initscr()
-        # カーソルを非表示にする
-        curses.curs_set(0)
-        # キー入力を有効にする
-        screen.keypad(True)
+        screen = self.screen
         # 画面をクリアする
         screen.clear()
         screen.refresh()
@@ -96,36 +88,26 @@ _______ __               __
         x = screen.getmaxyx()[1] // 2 - len(exam) // 2
         y = screen.getmaxyx()[0] // 2
         screen.addstr(y, x, exam)
-
         screen.refresh()
 
         ### : でページ遷移 ###
         key = screen.getch()
         input = ":"
         if key == ord(':'):
-            screen.addstr(screen.getmaxyx()[0]-1, 0, input)
+            screen.addstr(screen.getmaxyx()[0] - 1, 0, input)
             screen.refresh()
             while True:
                 key = screen.getch()
                 if key == curses.KEY_ENTER or key in [10, 13]:
                     if input.strip(':').lower == "home":
                         self.home_screen()
-                        pass
                     break
                 input += chr(key)
-                screen.addstr(screen.getmaxyx()[0], 0, input)
+                screen.addstr(screen.getmaxyx()[0] - 1, 0, input)
                 screen.refresh()
 
-        # スクリーンの終了処理
-        curses.endwin()
-
     def edit_screen(self):
-        # スクリーンの初期化
-        screen = curses.initscr()
-        # カーソルを非表示にする
-        curses.curs_set(0)
-        # キー入力を有効にする
-        screen.keypad(True)
+        screen = self.screen
         # 画面をクリアする
         screen.clear()
         screen.refresh()
@@ -143,12 +125,7 @@ _______ __               __
         curses.endwin()
 
     def report_screen(self):
-        # スクリーンの初期化
-        screen = curses.initscr()
-        # カーソルを非表示にする
-        curses.curs_set(0)
-        # キー入力を有効にする
-        screen.keypad(True)
+        screen = self.screen
         # 画面をクリアする
         screen.clear()
         screen.refresh()
