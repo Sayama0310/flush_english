@@ -24,8 +24,8 @@ class FlushApp:
  _______ __               __
 |    ___|  |.--.--.-----.|  |--.
 |    ___|  ||  |  |__ --||     |
-|___|   |__||_____|_____||__|__|
-    """
+|___|   |__||_____|_____||__|__|\
+"""
         splitted_title = title.split('\n')
         x = screen.getmaxyx()[1] // 2 - max_len(splitted_title) // 2
         y = screen.getmaxyx()[0] // 4
